@@ -10,7 +10,7 @@ $.getJSON("https://api.github.com/users/theany90/repos", function(data){
 
 function createRepoCard(data) {
     const card = document.createElement("div"); card.classList = "card border-dark p-1 m-1"; 
-    card.style = "width: 32.5%;"; 
+    card.style = "width: 32.5%; max-width: 17.8rem;"; 
     const cardbody = document.createElement("div"); cardbody.classList = "card-body d-flex flex-column";
     
 
