@@ -14,7 +14,9 @@ $.getJSON(`https://api.github.com/users/${userid}/repos`, function(data){
     }
 })
 
-$.getJSON(``)
+$.getJSON(`https://api.github.com/users/${userid}`, (data) => {
+    username = data.name; 
+})
 
 
 function createRepoCard(data) {
