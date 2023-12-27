@@ -1,5 +1,11 @@
+let url = window.location.href; 
+let userid = "example"; 
+let username = "Example"; 
+if(url.includes(".github.io")) {
+    userid = url.replace(".github.io", ""); 
+}
 let repolist = document.getElementById("repolist"); 
-$.getJSON("https://api.github.com/users/theany90/repos", function(data){
+$.getJSON(`https://api.github.com/users/${userid}/repos`, function(data){
     for(i = 0; i < data.length; i++) {
         if (data[i].name === `${data[i].owner.login}.github.io` ) {
             continue
@@ -7,6 +13,7 @@ $.getJSON("https://api.github.com/users/theany90/repos", function(data){
         repolist.appendChild(createRepoCard(data[i]))
     }
 })
+
 
 function createRepoCard(data) {
     const card = document.createElement("div"); card.classList = "card border-dark p-1 m-1"; 
@@ -34,3 +41,13 @@ function createRepoCard(data) {
     card.appendChild(cardbody);
     return card;
 }
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        let el = document.querySelector(".navbar-brand"); 
+        el.text = userid + " | " + username; 
+        document.title = username + " | Git Blog" 
+    }, 100);
+});
+

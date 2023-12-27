@@ -1,4 +1,4 @@
-$(function(){
+let loadnavbar = $(function(){
     var filename = "src/navbar.html"
     $("#navbar").load(filename);
 });
