@@ -2,7 +2,7 @@ let url = window.location.href;
 let userid = "example"; 
 let username = "Example"; 
 if(url.includes(".github.io")) {
-    userid = url.replace(".github.io", "").replace("/", "").replace("https:", "").replace("www");
+    userid = url.replace(".github.io", "").replaceAll("/", "").replace("https:", "").replace("www");
 }
 let repolist = document.getElementById("repolist"); 
 $.getJSON(`https://api.github.com/users/${userid}/repos`, function(data){
